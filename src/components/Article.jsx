@@ -1,21 +1,22 @@
-function Article() {
-  const name = "Nusendra";
-  const titles = ["Tutorial Reactjs", "Tutorial Nextjs", "Tutorial Nodejs"];
+const ArticleStatus = ({ isNew }) => {
+  return isNew && <span>--Baru!!</span>;
+};
 
-  return;
-  <>
-    <div>{"name"}</div>;
-    <div>
-      {titles.map((title) => {
-        return (
-          <>
-            <div>{title}</div>
-            <div>{title}</div>
-          </>
-        );
-      })}
-    </div>
-  </>;
+const NewArticle = () => {
+  return <span>--Baru!!</span>;
+};
+
+function Article(props) {
+  return (
+    <>
+      <h3>{props.title}</h3>
+      <small>
+        Date : {props.date}, tags: {props.tags.join(", ")}{" "}
+        <ArticleStatus isNew={props.isNew} />
+        {props.isNew && <NewArticle />}
+      </small>
+    </>
+  );
 }
 
 export default Article;
